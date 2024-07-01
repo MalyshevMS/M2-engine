@@ -64,6 +64,16 @@ void keyHandler(GLFWwindow* win) {
     }
 }
 
+// Detects when 2 sprite groups are colliding
+bool sg_collision(SprGroup& sg1, SprGroup& sg2) {
+    for (auto i : sg1.get_current_pos()) {
+        for (auto j : sg2.get_current_pos()) {
+            if (abs(i.x - j.x) <= gl_sprite_size && abs(i.y - j.y) <= gl_sprite_size) return true;
+        }
+    }
+    return false;
+}
+
 /*
 Your functions here
 */
